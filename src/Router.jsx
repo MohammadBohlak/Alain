@@ -5,9 +5,14 @@ import About from "./pages/about/About";
 import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
-  { path: "", element: <Home /> },
-  { path: "/about", element: <About /> },
-  { path: "/contact", element: <Contact /> },
+  {
+    path: "",
+    children: [
+      { index, element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+    ],
+  },
 ]);
 
 function Router(props) {
