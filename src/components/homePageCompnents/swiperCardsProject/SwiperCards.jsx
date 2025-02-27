@@ -9,29 +9,26 @@ import styled from "styled-components";
 import api from "../../../api/axios";
 
 function SwiperCards() {
-  const [projects, setProjects] = useState([])
-  useEffect(()=>{
-    api.get("/ar/browsable-projects/")
-    .then((res)=>{
-      setProjects(res.data)
-    })
-  },[])
+  const [projects, setProjects] = useState([]);
+  useEffect(() => {
+    api.get("/ar/browsable-projects/").then((res) => {
+      setProjects(res.data);
+    });
+  }, []);
   return (
     <>
       <Swiper
         pagination={{
-            clickable: true,
-          }}
+          clickable: true,
+        }}
         modules={[Pagination]}
         className="mySwiper"
       >
-        {projects.map((e, index)=>(
-          <SwiperSlide key= {index}>
-
+        {projects.map((e, index) => (
+          <SwiperSlide key={index}>
             <CardProject image={e.image} />
           </SwiperSlide>
         ))}
-       
       </Swiper>
     </>
   );
