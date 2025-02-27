@@ -9,7 +9,7 @@ import manage from "../../assets/images/manage.jpg";
 import SwiperCards from "../../components/homePageCompnents/swiperCardsProject/SwiperCards";
 import Services from "../../components/homePageCompnents/services/Services";
 import InformationUs from "../../components/homePageCompnents/informationUs/InformationUs";
-import { Title, Meta, Link, HeadProvider } from "react-head";
+// import { Title, Meta, Link, HeadProvider } from "react-head";
 import { useLocation } from "react-router-dom";
 import NavBar from "../../components/common/navbar/NavBar";
 import Footer from "../../components/common/footer/Footer";
@@ -29,12 +29,13 @@ function Home() {
     }
   }, [location.state]);
   return (
-    <HeadProvider>
+    // <HeadProvider>
+    <>
       <GlobalStyles />
       <NavBar />
       <StyledHome>
         <>
-          <Title>مؤسسة العين الحديثة | المقاولات العامة</Title>
+          {/* <Title>مؤسسة العين الحديثة | المقاولات العامة</Title>
           <Meta
             name="description"
             content="الرائدة في الإنشاءات والتشطيبات بدولة الإمارات"
@@ -43,7 +44,7 @@ function Home() {
             name="keywords"
             content="مقاولات, تشطيبات, بناء فلل, تشطيب داخلي"
           />
-          <Meta property="og:type" content="website" />
+          <Meta property="og:type" content="website" /> */}
         </>
         <Header />
         <Container>
@@ -117,7 +118,8 @@ function Home() {
         </Container>
       </StyledHome>
       <Footer />
-    </HeadProvider>
+    </>
+    // </HeadProvider>
   );
 }
 

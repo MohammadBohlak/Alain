@@ -14,17 +14,17 @@ import About from "./pages/about/About";
 import Contact from "./pages/Contact";
 import NavBar from "./components/common/navbar/NavBar";
 import Footer from "./components/common/footer/Footer";
-import { HeadProvider } from "react-head";
+// import { HeadProvider } from "react-head";
 
 function App() {
   return (
     <>
-      <HeadProvider>
+      {/* <HeadProvider> */}
         <GlobalStyles />
         <NavBar />
-        
+
         <Footer />
-      </HeadProvider>
+      {/* </HeadProvider> */}
     </>
   );
 }
