@@ -1,59 +1,59 @@
+import { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../../assets/images/logo/bigWhite.svg";
 import { StyledNavBar, StyledNavLink, Toggler } from "./navbar.styles";
-import { Link, useNavigate } from "react-router-dom";
-function NavBar() {
-  const navigate = useNavigate();
+import { Link } from "react-router-dom";
+import { useNavbar } from "./useNavbar";
 
-  const handleScrollToSection = (hash) => {
-    // إذا لم نكن في الصفحة الرئيسية
-    if (window.location.pathname !== "/") {
-      navigate("/", { state: { targetSection: hash } });
-    } else {
-      // إذا كنا في الصفحة الرئيسية
-      const element = document.getElementById(hash.replace("#", ""));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
+function NavBar() {
+  const { expanded, setExpanded, collapseRef, handleScrollToSection } =
+    useNavbar();
+
   return (
-    <StyledNavBar expand="md">
+    <StyledNavBar
+      expand="md"
+      expanded={expanded}
+      onToggle={(isOpen) => setExpanded(isOpen)}
+    >
       <Container>
-        <Navbar.Brand href="/">
-          <img src={logo} />
+        <Navbar.Brand as={Link} to="/">
+          <img src={logo} alt="اللوغو" />
         </Navbar.Brand>
-        <Toggler aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+
+        <Toggler
+          aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
+        />
+
+        <Navbar.Collapse id="basic-navbar-nav" ref={collapseRef}>
           <Nav>
-            <StyledNavLink as={Link} to="/">
+            <StyledNavLink as={Link} to="/" onClick={() => setExpanded(false)}>
               الرئيسية
             </StyledNavLink>
 
-            <StyledNavLink as={Link} to="/about">
+            <StyledNavLink
+              as={Link}
+              to="/about"
+              onClick={() => setExpanded(false)}
+            >
               حولنا
             </StyledNavLink>
 
-            <StyledNavLink as={Link} to="/contact">
+            <StyledNavLink
+              as={Link}
+              to="/contact"
+              onClick={() => setExpanded(false)}
+            >
               تواصل معنا
             </StyledNavLink>
-            {/* <StyledNavLink href="/#services">
-              خدماتنا
-            </StyledNavLink>
-            <StyledNavLink href="#ourProjects">
-              مشاريعنا
-            </StyledNavLink> */}
-            <StyledNavLink 
-              // as="button"
-              onClick={() => handleScrollToSection("#services")}
-            >
+
+            <StyledNavLink onClick={() => handleScrollToSection("#services")}>
               خدماتنا
             </StyledNavLink>
 
-            <StyledNavLink 
-              // as="button"
+            <StyledNavLink
               onClick={() => handleScrollToSection("#ourProjects")}
             >
               مشاريعنا

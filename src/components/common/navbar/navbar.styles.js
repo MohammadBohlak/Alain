@@ -6,7 +6,7 @@ const StyledNavBar = styled(Navbar)`
   position: fixed;
   top: 0;
   z-index: 1000;
-  height: 75px;
+  height: var(--nav-height);
   width: 100%;
   opacity: 0.9;
   img {
@@ -16,10 +16,11 @@ const StyledNavBar = styled(Navbar)`
   .navbar-collapse{
     background-color: var(--main-color) !important ;
     opacity: 0.9;
+    justify-content: center;
   }
 `;
 const StyledNavLink = styled(Nav.Link)`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 
   text-decoration: none;
   --padding: 20px;

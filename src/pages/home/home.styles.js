@@ -41,12 +41,13 @@ export const HomeImg = styled(Col)`
   align-items: center;
   img {
     max-width: 100%;
-    width: 300px;
-    height: 300px;
+    aspect-ratio: 1 / 1; /* نسبة الطول إلى العرض (1:1) */
+    width: 350px;
+    max-height: 100%;
   }
   img.circle {
     border-radius: 50%;
-    align-self: flex-end;
+    align-self: center;
   }
   img.square {
     border-radius: 20px;
@@ -54,6 +55,9 @@ export const HomeImg = styled(Col)`
     align-self: flex-start;
   }
   @media screen and (max-width: 768px) {
+    img{
+      width: 300px;
+    }
     img.circle,
     img.square {
       align-self: center;

@@ -6,8 +6,12 @@ html{
 }
 body{
   padding:0;
-  padding-top: 75px;
+  padding-top: var(--nav-height);
   margin:0; 
+  font-family: 'Arial', sans-serif;
+  direction: rtl;
+  text-align: right;
+  font-size: 2rem; 
 }
 :root{
   --main-color: #033489 ; 
@@ -15,13 +19,8 @@ body{
   --font-size: 10px ; 
   --section-spacing : 50px;
   --section-spacin-sm : 30px;
+  --nav-height: 80px;
 }
-  body {
-    font-family: 'Arial', sans-serif;
-    direction: rtl;
-    text-align: right;
-    font-size: 2rem; 
-  }
   *{
     padding: 0;
     margin: 0;
@@ -42,7 +41,7 @@ body{
 
 @media (min-width: 1400px) { 
   :root{
-    --font-size: 13px;
+    /* --font-size: 1px; */
   }
 }
 

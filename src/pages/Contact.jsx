@@ -7,8 +7,6 @@ import SideText from "../components/contactPageCompnents/sideText/SideText";
 import SocialMedia from "../components/contactPageCompnents/SocailMedia";
 import FAQSection from "../components/contactPageCompnents/FAQSection/FAQSection";
 import { Title, Meta } from "react-head";
-import axios from "../api/axios";
-// import axios from "axios";
 
 const Contact = () => {
  
@@ -40,7 +38,7 @@ const Contact = () => {
 };
 
 const StyledContact = styled.section`
-  padding: var(--section-spacing) 0;
+  padding: var(--nav-height) 0;
   background-color: var(--neutral-white);
   h1 {
     color: var(--primary-dark);

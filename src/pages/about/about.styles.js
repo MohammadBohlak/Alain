@@ -1,8 +1,7 @@
-import { Card } from "react-bootstrap";
 import styled from "styled-components";
 
 const StyledAbout = styled.section`
-  margin-top: var(--section-spacing);
+  padding-top: var(--nav-height);
   picture {
     display: block;
     margin: auto;

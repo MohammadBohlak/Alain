@@ -31,5 +31,4 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
   background: transparent;
   display: flex;
   align-items: center;
-
 `

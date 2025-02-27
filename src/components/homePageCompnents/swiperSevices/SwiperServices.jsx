@@ -33,6 +33,7 @@ export default function SwiperServices() {
           },
           992: {
             slidesPerView: 3,
+            spaceBetween: 10,
           },
         }}
       >
