@@ -6,9 +6,8 @@ import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
   {
-    path: "",
     children: [
-      { index, element: <Home /> },
+      { path: "", element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
     ],
