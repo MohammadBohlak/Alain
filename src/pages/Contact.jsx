@@ -6,17 +6,11 @@ import ContactForm from "../components/contactPageCompnents/contactForm/ContactF
 import SideText from "../components/contactPageCompnents/sideText/SideText";
 import SocialMedia from "../components/contactPageCompnents/SocailMedia";
 import FAQSection from "../components/contactPageCompnents/FAQSection/FAQSection";
-import { Title, Meta, HeadProvider } from "react-head";
-import Footer from "../components/common/footer/Footer";
-import NavBar from "../components/common/navbar/NavBar";
-import GlobalStyles from "../styles/GlobalStyles";
+import { Title, Meta } from "react-head";
 
 const Contact = () => {
  
   return (
-    <HeadProvider>
-      <GlobalStyles />
-      <NavBar />
     <>
       <Title>اتصل بنا - مؤسسة العين الحديثة</Title>
       <Meta
@@ -40,8 +34,6 @@ const Contact = () => {
         </Container>
       </StyledContact>
     </>
-    <Footer />
-    </HeadProvider>
   );
 };
 

@@ -7,16 +7,10 @@ import WhoUs from "../../components/aboutPageComponents/WhoUs";
 import Mission from "../../components/aboutPageComponents/mission/Mission";
 import OurTeam from "../../components/aboutPageComponents/ourTeam/OurTeam";
 // import TimelineSection from "../../components/aboutPageComponents/timeLine/TimelineSection";
-import { Title, Meta, Link, HeadProvider } from "react-head";
-import Footer from "../../components/common/footer/Footer";
-import NavBar from "../../components/common/navbar/NavBar";
-import GlobalStyles from "../../styles/GlobalStyles";
+import { Title, Meta, Link } from "react-head";
 
 function About(props) {
   return (
-    <HeadProvider>
-      <GlobalStyles />
-      <NavBar />
     <>
       <Title>تاريخنا | مؤسسة العين الحديثة</Title>
       <Meta property="og:title" content="خبرة 15 عامًا في المقاولات" />
@@ -32,8 +26,6 @@ function About(props) {
         </StyledAbout>
       </Container>
     </>
-    <Footer />
-    </HeadProvider>
   );
 }
 
