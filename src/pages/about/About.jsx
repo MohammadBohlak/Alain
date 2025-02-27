@@ -21,11 +21,9 @@ function About(props) {
           <Logo color="blue" />
           <WhoUs />
           <Mission />
-
           <Stats />
           <OurTeam />
         </StyledAbout>
-        {/* <TimelineSection/> */}
       </Container>
     </>
   );

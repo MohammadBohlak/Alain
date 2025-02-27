@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PrimaryText } from "../../common/text/PrimaryText.styles";
 import { SecondaryText } from "../../common/text/SecondaryText.styles";
 import { StyledOurTeam } from "./ourTeam.styles";
@@ -6,7 +6,13 @@ import { TitleSection } from "../../common/text/TitleSection";
 import { Col, Row } from "react-bootstrap";
 import staff from "../../../assets/images/staff.jpg";
 import CardStaff from "../cardStaff/CardStaff";
+import api from "../../../api/axios";
 function OurTeam(props) {
+  const [ourTeam, setOurTeam] = useState([])
+  useEffect(()=>{
+    api.get("/ar/members/")
+    .then((res)=> setOurTeam(res.data))
+  },[])
   return (
     <StyledOurTeam>
       <TitleSection>
@@ -20,39 +26,15 @@ function OurTeam(props) {
       </TitleSection>
 
       <Row style={{ rowGap: "15px" }}>
-        <CardStaff
-          image={staff}
-          name="محمد الأحمد"
-          job="مهندس مدني و مدير تنفيذي"
-          more={
-            "محمد الأحمد هو مهندس مدني ذو خبرة واسعة في مجال البناء والتشييد، يشغل منصب المدير التنفيذي لمؤسسة العين الحديثة للمقاولات. يقود أحمد فرق العمل نحو النجاح من خلال رؤيته الاستراتيجية واهتمامه بالتفاصيل الدقيقة لضمان تقديم أعلى معايير الجودة والابتكار في كل مشروع."
-          }
+        {ourTeam.map((e, index) =>(
+          <CardStaff
+          key= {{index}}
+          name= {` ${e.first_name} ${e.last_name}`}
+          image={e.image}
+          job= {e.position} 
         />
-        <CardStaff
-          image={staff}
-          name="محمد الأحمد"
-          job="مهندس مدني و مدير تنفيذي"
-          more={
-            "محمد الأحمد هو مهندس مدني ذو خبرة واسعة في مجال البناء والتشييد، يشغل منصب المدير التنفيذي لمؤسسة العين الحديثة للمقاولات. يقود أحمد فرق العمل نحو النجاح من خلال رؤيته الاستراتيجية واهتمامه بالتفاصيل الدقيقة لضمان تقديم أعلى معايير الجودة والابتكار في كل مشروع."
-          }
-        />
-        <CardStaff
-          image={staff}
-          name="محمد الأحمد"
-          job="مهندس مدني و مدير تنفيذي"
-          more={
-            "محمد الأحمد هو مهندس مدني ذو خبرة واسعة في مجال البناء والتشييد، يشغل منصب المدير التنفيذي لمؤسسة العين الحديثة للمقاولات. يقود أحمد فرق العمل نحو النجاح من خلال رؤيته الاستراتيجية واهتمامه بالتفاصيل الدقيقة لضمان تقديم أعلى معايير الجودة والابتكار في كل مشروع."
-          }
-        />
-        <CardStaff
-          image={staff}
-          name="محمد الأحمد"
-          job="مهندس مدني و مدير تنفيذي"
-          more={
-            "محمد الأحمد هو مهندس مدني ذو خبرة واسعة في مجال البناء والتشييد، يشغل منصب المدير التنفيذي لمؤسسة العين الحديثة للمقاولات. يقود أحمد فرق العمل نحو النجاح من خلال رؤيته الاستراتيجية واهتمامه بالتفاصيل الدقيقة لضمان تقديم أعلى معايير الجودة والابتكار في كل مشروع."
-          }
-        />
-    
+        ))}
+        
       </Row>
     </StyledOurTeam>
   );

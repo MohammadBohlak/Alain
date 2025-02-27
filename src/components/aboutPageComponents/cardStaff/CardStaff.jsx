@@ -9,9 +9,9 @@ import { PrimaryButton } from "../../common/PrimaryButton";
 
 
 
-function CardStaff({ image, name, job, more }) {
+function CardStaff({ image, name, job }) {
    let data= {
-        image, name, job, more
+        image, name, job
     }
   const [modalShow, setModalShow] = useState(false);
 
@@ -23,13 +23,6 @@ function CardStaff({ image, name, job, more }) {
           <Card.Body>
               <PrimaryText>{data.name}</PrimaryText>
               <SecondaryText>{data.job}</SecondaryText>
-            <PrimaryButton variant="primary" onClick={() => setModalShow(true)}>
-              اقرأ أكثر
-            </PrimaryButton>
-
-            <ModalStaff 
-            data={data}
-            show={modalShow} onHide={() => setModalShow(false)} />
           </Card.Body>
         </Card>
       </Col>
